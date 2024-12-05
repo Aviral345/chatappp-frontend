@@ -54,7 +54,7 @@ const Chat = () => {
 
     // console.log(groupName);
     try {
-      const res = await axios.post('/api/groups/create', { groupName: newgroupname, createdBy: userid }, {
+      const res = await axios.post('https://chatapp-backend-eight-kappa.vercel.app/api/groups/create', { groupName: newgroupname, createdBy: userid }, {
         headers: {
           Authorization: `Bearer ${token}` // Assuming token is stored in localStorage
         }
@@ -67,7 +67,7 @@ const Chat = () => {
     }
 
     // try {
-    //   const response = await axios.post('/api/groups/create', { groupName }, {
+    //   const response = await axios.post('https://chatapp-backend-eight-kappa.vercel.app//api/groups/create', { groupName }, {
     //     headers: {
     //       Authorization: `Bearer ${token}` // Assuming token is stored in localStorage
     //     }
@@ -93,7 +93,7 @@ const Chat = () => {
 
   const fatchgroups = async () => { //DONE
     // Handle fetching messages for a specific group
-    const groupsresponse = await axios.get('/api/groups/list', {
+    const groupsresponse = await axios.get('https://chatapp-backend-eight-kappa.vercel.app//api/groups/list', {
       headers: {
         Authorization: `Bearer ${token}` // Assuming token is stored in localStorage
       }
@@ -137,7 +137,7 @@ const Chat = () => {
     };
 
     try {
-      const response = await axios.post('/api/message/send', messageData
+      const response = await axios.post('https://chatapp-backend-eight-kappa.vercel.app//api/message/send', messageData
         //   , {
         //   headers: {
         //     Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -163,7 +163,7 @@ const Chat = () => {
     localStorage.setItem('selectedgroup', group._id);
     setMessages([]);
     try {
-      const response = await axios.get(`/api/message/${group._id}`, {
+      const response = await axios.get(`https://chatapp-backend-eight-kappa.vercel.app//api/message/${group._id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
